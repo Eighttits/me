@@ -1,12 +1,14 @@
 {
-  "description": "I'm a UI/UX student studying at Barnett Technical University. I enjoy creating unique and simplistic user interfaces in creative ways.",
+  "description": "I'm a Full Stack Software Developer with one year of experience. My professional philosophy is to grow both personally and professionally while contributing to the success of my company.",
   "skills": [
-    "Web design",
-    "User experience",
-    "Inclusive design",
-    "Focus group testing",
-    "Mobile user interfaces",
-    "Graphic design"
+    "React",
+    "PHP",
+    "Laravel",
+    "Django",
+    "AWS",
+    "Git",
+    "HTML",
+    "Linux"
   ],
-  "detailOrQuote": "I am passionate about solving problems in new creative ways to drive innovation. By leveraging my UI/UX experience I continually look for new and better ways to make tech accessible by all."
+  "detailOrQuote": "I love working as a software developer because one of the things I enjoy most is solving problems and building impactful solutions. I believe that if you love what you do, you'll naturally excel at it."
 }
