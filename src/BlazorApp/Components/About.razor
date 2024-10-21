@@ -1,27 +1,27 @@
 <section class="light" id="about">
     @if (hero is not null)
     {
-        <img class="background" src="@(hero.Src)" alt="@(hero.Alt)" />
+        <img class="background img-fluid" src="@(hero.Src)" alt="@(hero.Alt)" style="max-width: 100%; height: auto;" />
     }
     <h2>About Myself</h2>
-    <div style="background-color: white; width: 50%; padding: 4rem; margin: 3rem auto; text-align: center;">
-    @if (aboutMe is null)
-    {
-        <p><em>Loading...</em></p>
-    }
-    else
-    {
-        <p class="large">@aboutMe.Description</p>
-        <hr />
-        <ul style="text-align: left; columns: 2; font-size: 1.25rem; margin: 2rem 3rem; gap: 3rem;">
-        @foreach (var skill in aboutMe.Skills)
+    <div style="background-color: white; width: 90%; max-width: 800px; padding: 2rem; margin: 3rem auto; text-align: center;">
+        @if (aboutMe is null)
         {
-            <li key="@skill">@skill</li>
+            <p><em>Loading...</em></p>
         }
-        </ul>
-        <hr />
-        <p style="padding: 1rem 3rem 0;">@aboutMe.DetailOrQuote</p>
-    }
+        else
+        {
+            <p class="large" style="font-size: 1.25rem;">@aboutMe.Description</p>
+            <hr />
+            <ul style="display: flex; flex-wrap: wrap; justify-content: center; text-align: left; font-size: 1.25rem; margin: 2rem 0;">
+                @foreach (var skill in aboutMe.Skills)
+                {
+                    <li style="flex: 1 1 45%; margin: 0.5rem;">@skill</li> <!-- Ajusta el tamaño del flex según sea necesario -->
+                }
+            </ul>
+            <hr />
+            <p style="padding: 1rem 3rem 0;">@aboutMe.DetailOrQuote</p>
+        }
     </div>
 </section>
 
@@ -39,6 +39,5 @@
     {
         aboutMe = await Http.GetFromJsonAsync<AboutMe>("sample-data/aboutme.json");
         hero = await HeroImageService.GetHeroAsync(img => img.Name is "about");
-
     }
 }
