@@ -1,10 +1,13 @@
-<section class="light" id="about">
+<section class="light" id="about" style="position: relative; padding-bottom: 5rem;">
     @if (hero is not null)
     {
-        <img class="background img-fluid" src="@(hero.Src)" alt="@(hero.Alt)" style="max-width: 100%; height: auto;" />
+        <div class="background-container" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden;">
+            <img class="background img-fluid" src="@(hero.Src)" alt="@(hero.Alt)" 
+                 style="width: 100%; height: 100%; object-fit: cover; opacity: 0.8;" />
+        </div>
     }
     <h2>About Myself</h2>
-    <div style="background-color: white; width: 90%; max-width: 800px; padding: 2rem; margin: 3rem auto; text-align: center;">
+    <div style="background-color: white; width: 90%; max-width: 800px; padding: 2rem; margin: 3rem auto; text-align: center; position: relative; z-index: 1;">
         @if (aboutMe is null)
         {
             <p><em>Loading...</em></p>
@@ -16,7 +19,7 @@
             <ul style="display: flex; flex-wrap: wrap; justify-content: center; text-align: left; font-size: 1.25rem; margin: 2rem 0;">
                 @foreach (var skill in aboutMe.Skills)
                 {
-                    <li style="flex: 1 1 45%; margin: 0.5rem;">@skill</li> <!-- Ajusta el tamaño del flex según sea necesario -->
+                    <li style="flex: 1 1 45%; margin: 0.5rem;">@skill</li>
                 }
             </ul>
             <hr />
@@ -24,6 +27,7 @@
         }
     </div>
 </section>
+
 
 @code {
     [Parameter, EditorRequired]
