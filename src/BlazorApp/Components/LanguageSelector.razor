@@ -1,0 +1,22 @@
+@inject LanguageService LanguageService
+@code {
+    private string SelectedLanguage { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        SelectedLanguage = await LanguageService.GetCurrentLanguageAsync();
+    }
+
+    private void ChangeLanguage(ChangeEventArgs e)
+    {
+        LanguageService.ChangeLanguage(e.Value.ToString());
+        StateHasChanged();
+    }
+}
+
+<div class="language-selector">
+    <select @onchange="ChangeLanguage" value="@SelectedLanguage" class="form-select">
+        <option value="en">EN</option>
+        <option value="es">ES</option>
+    </select>
+</div>
